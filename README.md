@@ -2,10 +2,27 @@
 
 This project explores the relationship between dataset characteristics and hyperparameter selection, particularly the best `k` for k-Nearest Neighbors (k-NN). The pipeline includes data generation, feature extraction, and prediction to automate and optimize hyperparameter detection for machine learning models.
 
-## **Features**
+<figure>
+  <img style="float: left;" src="fig/fig1.mmd.svg"/>
+   <figcaption>Pipeline of the processs</figcaption>
+
+</figure>
+
+<br>
+<br>
+
+## **Step of the pipeline**
+
 1. **Data Generation**:
+```
+from generation.data_generation import genf_multiple_datasets
+genf_multiple_datasets(100)
+```
    - Generates synthetic datasets with varying characteristics (size, distribution types, noise levels).
    - Saves datasets as CSV files in the `raw_generated_data` folder.
+
+
+
 
 2. **Feature Extraction**:
    - Processes raw datasets to extract relevant features.
@@ -17,3 +34,12 @@ This project explores the relationship between dataset characteristics and hyper
    - Trains and evaluates the model using scikit-learn's regression utilities.
    - Saves the trained model for future use.
 
+## **Usage**
+To summary, run the following command to get a model 
+```
+from generation.data_generation import genf_multiple_datasets
+genf_multiple_datasets(100)
+```
+## **Structure of the depository**
+
+raw_generated_data : where you put the raw data

@@ -8,6 +8,34 @@ import pandas as pd
 RAW_DATA_FOLDER = "raw_generated_data"
 os.makedirs(RAW_DATA_FOLDER, exist_ok=True)
 
+def clear_raw_data_folder():
+    """Deletes all files in the RAW_DATA_FOLDER."""
+    for filename in os.listdir(RAW_DATA_FOLDER):
+        file_path = os.path.join(RAW_DATA_FOLDER, filename)
+        try:
+            if os.path.isfile(file_path):
+                os.unlink(file_path)  # Supprime le fichier
+        except Exception as e:
+            print(f"Error deleting file {file_path}: {e}")
+
+def genf_multiple_datasets(count, view=False):
+    """
+    Generates multiple fake datasets and saves them as CSV files.
+    
+    Parameters:
+        count (int): Number of datasets to generate.
+        view (bool, optional): Whether to display the plots for each dataset. Defaults to False.
+    """
+    # Clear the folder before generating new datasets
+    print("Clearing raw data folder...")
+    clear_raw_data_folder()
+    print("Folder cleared. Generating datasets...")
+    
+    for i in range(1, count + 1):
+        print(f"Generating dataset {i}/{count}...")
+        genf_dataset(index=i, view=view)
+    print(f"Generated {count} datasets.")
+
 def plot_dataset(dataset, cx=None):
     """Shows the 'x' values of fake dataset as scatterplots."""
     fig, ax = plt.subplots(1, 2)
