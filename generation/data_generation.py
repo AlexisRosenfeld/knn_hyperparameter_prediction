@@ -19,6 +19,7 @@ def clear_raw_data_folder():
             print(f"Error deleting file {file_path}: {e}")
 
 def genf_multiple_datasets(count, view=False):
+    print("salut")
     """
     Generates multiple fake datasets and saves them as CSV files.
     

@@ -25,6 +25,10 @@ genf_multiple_datasets(100)
 
 
 2. **Feature Extraction**:
+```
+from extraction.features_extraction import create_dataset
+create_dataset("raw_generated_data", "processed_dataset.csv")
+```
    - Processes raw datasets to extract relevant features.
    - Calculates key metrics such as noise levels, class counts, and dataset dimensions.
    - Stores processed data as `processed_dataset.csv`.
@@ -33,12 +37,23 @@ genf_multiple_datasets(100)
    - Builds a regression model to predict the best hyperparameter (`best_k`) based on dataset features.
    - Trains and evaluates the model using scikit-learn's regression utilities.
    - Saves the trained model for future use.
+```
+from prediction.model_training import train_global
+
+
+model, X, y, X_train, X_test, y_train, y_test = train_global(data)
+```
+
+
 
 ## **Usage**
 To summary, run the following command to get a model 
 ```
 from generation.data_generation import genf_multiple_datasets
 genf_multiple_datasets(100)
+
+
+
 ```
 ## **Structure of the depository**
 
